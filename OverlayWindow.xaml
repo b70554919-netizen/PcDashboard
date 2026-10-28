@@ -1,0 +1,36 @@
+<Window x:Class="PcDashboard.OverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="PcDashboard Overlay"
+        SizeToContent="WidthAndHeight"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        ShowInTaskbar="False"
+        ShowActivated="False"
+        Focusable="False"
+        IsHitTestVisible="False"
+        Topmost="True"
+        WindowStartupLocation="Manual">
+    <Border Background="#D90B0F14"
+            BorderBrush="#804CC9F0"
+            BorderThickness="1"
+            CornerRadius="8"
+            Padding="10,7">
+        <TextBlock x:Name="ValuesText"
+                   Text="CPU --&#x00B0;C&#x2003;--%&#x2003;--W&#x000A;GPU --&#x00B0;C&#x2003;--%&#x000A;RAM -- / -- GB"
+                   FontFamily="Consolas"
+                   FontSize="14"
+                   Foreground="#E6EDF3"
+                   LineHeight="20">
+            <TextBlock.Effect>
+                <DropShadowEffect BlurRadius="5"
+                                  Direction="315"
+                                  ShadowDepth="1"
+                                  Opacity="0.9"
+                                  Color="Black" />
+            </TextBlock.Effect>
+        </TextBlock>
+    </Border>
+</Window>

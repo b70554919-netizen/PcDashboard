@@ -7,5 +7,6 @@ obj/
 *.userosscache
 *.sln.docstates
 publish/
+dist/
 TestResults/
 *.log

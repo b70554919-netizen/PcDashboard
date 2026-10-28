@@ -46,6 +46,14 @@
             <Setter Property="Foreground" Value="#E6EDF3" />
             <Setter Property="BorderThickness" Value="0" />
         </Style>
+        <Style x:Key="HeaderButton" TargetType="Button">
+            <Setter Property="Background" Value="#17212B" />
+            <Setter Property="Foreground" Value="#E6EDF3" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Padding" Value="14,7" />
+            <Setter Property="Margin" Value="16,0,0,0" />
+            <Setter Property="Cursor" Value="Hand" />
+        </Style>
     </Window.Resources>
 
     <Grid Margin="18">
@@ -64,11 +72,13 @@
                            FontSize="12"
                            Margin="0,2,0,0" />
             </StackPanel>
-            <TextBlock x:Name="StatusText"
-                       DockPanel.Dock="Right"
-                       VerticalAlignment="Center"
-                       Foreground="#8B98A5"
-                       Text="starting..." />
+            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock x:Name="StatusText"
+                           VerticalAlignment="Center"
+                           Foreground="#8B98A5"
+                           Text="starting..." />
+                <Button Content="Settings" Style="{StaticResource HeaderButton}" Click="Settings_Click" />
+            </StackPanel>
         </DockPanel>
 
         <UniformGrid Grid.Row="1" Columns="4" Margin="0,16,0,16">
@@ -129,6 +139,12 @@
             <Grid>
                 <TextBlock Text="TEMPERATURE HISTORY" Style="{StaticResource CardLabel}" />
                 <Canvas x:Name="ChartCanvas" Margin="0,28,0,0" ClipToBounds="True" SizeChanged="ChartCanvas_SizeChanged">
+                    <Line x:Name="GridTop" Stroke="#1E2A36" StrokeThickness="1" StrokeDashArray="2 4" />
+                    <Line x:Name="GridMid" Stroke="#1E2A36" StrokeThickness="1" StrokeDashArray="2 4" />
+                    <Line x:Name="GridBottom" Stroke="#1E2A36" StrokeThickness="1" StrokeDashArray="2 4" />
+                    <TextBlock x:Name="ChartMaxLabel" Text="100°C" Foreground="#5B6B7A" FontSize="10" />
+                    <TextBlock x:Name="ChartMidLabel" Text="50°C" Foreground="#5B6B7A" FontSize="10" />
+                    <TextBlock x:Name="ChartMinLabel" Text="0°C" Foreground="#5B6B7A" FontSize="10" />
                     <Polyline x:Name="CpuLine" Stroke="#4CC9F0" StrokeThickness="2" />
                     <Polyline x:Name="GpuLine" Stroke="#F72585" StrokeThickness="2" />
                 </Canvas>
